@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>YouTube Video Example</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
-        <h1>Bahman Nouri</h1>
-        <p>Welcome to my portfolio website!</p>
-        <!-- Add your image here -->
-        <img src="images/bahman.jpg" alt="Bahman Nouri" class="profile-pic">
+        <h1>My Portfolio</h1>
+        <p>Welcome to my website!</p>
     </header>
     <section>
-        <h2>About Me</h2>
-        <p>Hello! I'm Bahman, a passionate web developer and designer.</p>
+        <h2>Watch My Video</h2>
+
+        <!-- YouTube Video Thumbnail and Play Button -->
+        <div class="video-container">
+            <img id="thumbnail" src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail">
+            <button onclick="playVideo()">Play Video</button>
+        </div>
+
+        <!-- YouTube Embed Code (hidden initially) -->
+        <div id="video-player" style="display:none;">
+            <iframe id="video-iframe" width="560" height="315" src="https://www.youtube.com/watch?v=L3KKiEi6-8w" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
     </section>
-    <section>
-        <h2>Connect with Me</h2>
-        <ul>
-            <li><a href="https://github.com/bahman-nouri" target="_blank">GitHub</a></li>
-            <li><a href="https://linkedin.com/in/bahman-nouri" target="_blank">LinkedIn</a></li>
-            <li><a href="mailto:bahman@example.com">Email Me</a></li>
-        </ul>
-    </section>
+
     <footer>
         <p>&copy; 2024 Bahman Nouri</p>
     </footer>
+
+    <script>
+        // Function to display the video when the "Play" button is clicked
+        function playVideo() {
+            // Hide the thumbnail and button
+            document.getElementById('thumbnail').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+
+            // Show the video iframe
+            document.getElementById('video-player').style.display = 'block';
+        }
+    </script>
 </body>
 </html>
