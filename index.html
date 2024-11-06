@@ -97,21 +97,7 @@
         .carousel-image {
             width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Small Images Below About Me */
-        .small-images {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .small-image {
-            width: 200px;
-            height: auto;
+            max-height: 300px; /* Adjust size as needed */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -179,13 +165,7 @@
         </div>
     </div>
 
-    <!-- Small Images Section Below About Me -->
-    <div class="small-images">
-        <img src="images/Figure10.JPG" alt="Figure 1" class="small-image">
-        <img src="images/IMG_2973.jpg" alt="Figure 2" class="small-image">
-    </div>
-
-    <!-- Carousel Section -->
+    <!-- Carousel Section Below About Me -->
     <div class="carousel-container">
         <img src="images/Figure10.JPG" class="carousel-image" id="carouselImage" alt="Research Project Image">
         
@@ -223,17 +203,12 @@
         dots[currentIndex].classList.add("active");
     }
 
-    function changeImage(step) {
-        currentIndex += step;
-        showImage(currentIndex);
-    }
-
     function setImage(index) {
         currentIndex = index;
         showImage(currentIndex);
     }
 
-    // Initialize carousel
+    // Initialize carousel with first image
     showImage(currentIndex);
 </script>
 
