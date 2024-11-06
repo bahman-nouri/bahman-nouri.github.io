@@ -33,47 +33,21 @@
         }
 
         /* Main Content Section */
-        section {
-            padding: 20px;
+        .content {
+            display: flex;
             max-width: 1000px;
             margin: auto;
-            display: flex;
-            flex-direction: column;
+            padding: 20px;
             gap: 20px;
         }
 
-        /* About Me Title */
-        .about-me-content {
-            font-size: 18px;
-            line-height: 1.6;
-            max-width: 800px;
-        }
-
-        .section-title {
-            font-weight: bold;
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #4CAF50;
-            text-align: left;
-        }
-
-        /* Profile and Carousel Section */
-        .profile-carousel-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        /* Profile Image and Info */
-        .profile-img-container {
-            text-align: center;
-            max-width: 150px;
+        /* Left Column for Profile */
+        .left-column {
+            max-width: 200px;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
             border-radius: 50%;
             border: 3px solid #4CAF50;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -81,13 +55,34 @@
         }
 
         .contact-info {
+            margin-top: 15px;
             font-size: 14px;
             color: #333;
-            margin-top: 10px;
-            text-align: center;
         }
 
-        /* Carousel Styles */
+        .contact-info p {
+            margin: 5px 0;
+            text-align: left;
+        }
+
+        /* Right Column for About Me and Carousel */
+        .right-column {
+            flex: 1;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .about-me-content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Carousel Section */
         .carousel-container {
             position: relative;
             max-width: 100%;
@@ -163,25 +158,24 @@
 </div>
 
 <!-- Main Content Section -->
-<section>
-    <!-- About Me Content -->
-    <div class="about-me-content">
-        <p class="section-title">About Me</p>
-        <p>I am a Lecturer in Robotics with a focus on teleoperated and autonomous robotic systems for medicine and scientific exploration. With a background in mechatronics and automation engineering, I strive to innovate in robotics and support impactful research projects.</p>
+<div class="content">
+    <!-- Left Column for Profile Image and Contact Info -->
+    <div class="left-column">
+        <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
+        <div class="contact-info">
+            <p><strong>Name:</strong> Bahman Nouri</p>
+            <p><strong>Email:</strong> bahman.nouri@example.com</p>
+            <p><strong>Affiliation:</strong> The University of Manchester</p>
+            <p><strong>Location:</strong> Whitehaven, UK</p>
+            <p><a href="https://linkedin.com">LinkedIn Profile</a></p>
+        </div>
     </div>
 
-    <!-- Profile and Carousel Section -->
-    <div class="profile-carousel-section">
-        <!-- Profile Image, Name, and Contact Info -->
-        <div class="profile-img-container">
-            <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
-            <div class="contact-info">
-                <p class="profile-name">Bahman Nouri</p>
-                <p>Email: bahman.nouri@example.com</p>
-                <p>Affiliation: The University of Manchester</p>
-                <p>Location: Whitehaven, UK</p>
-                <p><a href="https://linkedin.com">LinkedIn Profile</a></p>
-            </div>
+    <!-- Right Column for About Me and Carousel -->
+    <div class="right-column">
+        <div class="about-me-content">
+            <p class="section-title">About Me</p>
+            <p>I am a Lecturer in Robotics with a focus on teleoperated and autonomous robotic systems for medicine and scientific exploration. With a background in mechatronics and automation engineering, I strive to innovate in robotics and support impactful research projects.</p>
         </div>
 
         <!-- Carousel Section -->
@@ -202,7 +196,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- Footer -->
 <footer>
