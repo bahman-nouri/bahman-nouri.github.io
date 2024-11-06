@@ -49,10 +49,14 @@
             text-align: center;
         }
 
-        /* Profile Image Styles */
+        /* Profile Section with Image on the Left */
         .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
             margin-top: 20px;
-            text-align: center;
+            text-align: left; /* Align text to the left */
         }
 
         .profile-img {
@@ -62,6 +66,10 @@
             border: 3px solid #4CAF50;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             object-fit: cover;
+        }
+
+        .profile-description {
+            max-width: 600px;
         }
 
         footer {
@@ -87,15 +95,16 @@
     <p>Welcome to my personal website!</p>
 </header>
 
-<!-- Home Section with Profile Image -->
+<!-- Home Section with Profile Image and Description -->
 <section>
     <h2>About Me</h2>
-    <p>This is a brief introduction to me.</p>
 
-    <!-- Profile Section with Image -->
+    <!-- Profile Section with Image on the Left and Description on the Right -->
     <div class="profile-section">
         <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
-        <p>Hello! I am Bahman Nouri, a web developer and project enthusiast.</p>
+        <div class="profile-description">
+            <p>Hello! I am Bahman Nouri, a passionate web developer and project enthusiast with experience in creating interactive websites and applications. I enjoy problem-solving and am dedicated to continuous learning in the field of technology. My projects range from frontend to backend development, reflecting my versatile skills in web development.</p>
+        </div>
     </div>
 </section>
 
