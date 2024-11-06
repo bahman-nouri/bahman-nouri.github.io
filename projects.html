@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Bahman Nouri Portfolio</title>
     <style>
-        /* Basic Reset */
+        /* Basic styles for the projects page */
         body, h1, h2, p {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
         }
 
-        /* Navigation Bar */
         .navbar {
             background-color: #333;
             overflow: hidden;
@@ -35,24 +35,11 @@
             color: black;
         }
 
-        /* Projects Section */
-        section {
-            padding: 50px;
-            text-align: center;
-        }
-
-        /* Styling for Video Container */
-        .video-container {
-            display: inline-block;
-            margin: 10px;
-            text-align: center;
-        }
-
-        .video-thumbnail {
-            width: 300px;
-            cursor: pointer;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+        .projects-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
         }
 
         .project-item {
@@ -69,7 +56,6 @@
             margin-bottom: 10px;
         }
 
-        /* Footer Styles */
         footer {
             background-color: #333;
             color: white;
@@ -77,7 +63,19 @@
             text-align: center;
         }
 
-        /* Video Player Styles */
+        .video-container {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
         .video-player {
             display: none;
             margin-top: 10px;
@@ -85,30 +83,17 @@
             height: 200px;
             border-radius: 8px;
         }
-
-        /* Project List */
-        .projects-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
-<div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="publications.html">Publications</a>
-    <a href="#contact">Contact</a>
-</div>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+    </div>
 
-<!-- Projects Section -->
-<section id="projects">
-    <h2>Projects</h2>
-
-    <!-- List of Projects -->
+    <!-- Projects Section -->
     <div class="projects-list">
         <!-- Project 1 -->
         <div class="project-item">
@@ -134,32 +119,22 @@
             </div>
         </div>
 
-        <!-- Add more projects as needed -->
     </div>
-</section>
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2024 Bahman Nouri</p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Bahman Nouri</p>
+    </footer>
 
-<script>
-    // Function to display the video when the thumbnail is clicked
-    function playVideo(videoId, thumbnailElement) {
-        // Get the video player element by id using the thumbnailElement reference
-        const videoPlayer = thumbnailElement.nextElementSibling;  // Get the next div which is the video player
-        
-        // Get the iframe inside the video player and set its source
-        const iframe = videoPlayer.querySelector('iframe');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-
-        // Show the video player
-        videoPlayer.style.display = 'block';
-
-        // Hide the thumbnail
-        thumbnailElement.style.display = 'none';
-    }
-</script>
+    <script>
+        // Function to play the video
+        function playVideo(videoId, thumbnail) {
+            var videoPlayer = thumbnail.nextElementSibling;
+            var iframe = videoPlayer.querySelector('iframe');
+            iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1";
+            videoPlayer.style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
