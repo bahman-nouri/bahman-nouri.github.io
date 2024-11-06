@@ -151,10 +151,7 @@
 
 <!-- Navigation Bar -->
 <div class="navbar">
-    <a onclick="showSection('home')">Home</a>
-    <a onclick="showSection('projects')">Projects</a>
-    <a onclick="showSection('publications')">Publications</a>
-    <a onclick="showSection('contact')">Contact</a>
+    <a href="#home">Home</a>
 </div>
 
 <!-- Home Section -->
@@ -200,24 +197,6 @@
     </div>
 </div>
 
-<!-- Projects Section -->
-<div id="projects" class="section">
-    <h1>My Projects</h1>
-    <p>Here are some of the robotics projects I've been working on...</p>
-</div>
-
-<!-- Publications Section -->
-<div id="publications" class="section">
-    <h1>Publications</h1>
-    <p>Here are my latest publications...</p>
-</div>
-
-<!-- Contact Section -->
-<div id="contact" class="section">
-    <h1>Contact</h1>
-    <p>If you would like to get in touch, you can reach me via email.</p>
-</div>
-
 <!-- Footer -->
 <footer>
     <p>&copy; 2024 Bahman Nouri</p>
@@ -261,17 +240,6 @@
 
     // Initialize carousel with first image
     showImage(currentIndex);
-
-    // JavaScript for Navigation
-    function showSection(sectionId) {
-        // Hide all sections
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => section.classList.remove('active-section'));
-
-        // Show the selected section
-        const selectedSection = document.getElementById(sectionId);
-        selectedSection.classList.add('active-section');
-    }
 </script>
 
 </body>
