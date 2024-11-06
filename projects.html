@@ -10,7 +10,29 @@
         .navbar a { color: white; padding: 16px 20px; text-decoration: none; font-size: 18px; font-weight: bold; }
         .navbar a:hover { background-color: #ddd; color: black; }
         section { padding: 50px; text-align: center; }
-        .project-item { margin: 10px; display: inline-block; width: 300px; border: 1px solid #ddd; padding: 10px; }
+        .project-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+            max-width: 900px;
+            margin: auto;
+            text-align: left;
+        }
+        .video-container {
+            width: 300px;
+            height: 200px;
+            cursor: pointer;
+            position: relative;
+        }
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+        }
+        .project-info {
+            flex: 1;
+        }
         footer { background-color: #333; color: white; padding: 10px 0; text-align: center; }
     </style>
 </head>
@@ -25,11 +47,19 @@
     <!-- Projects Section -->
     <section>
         <h2>Projects</h2>
+
+        <!-- Project Item 1 -->
         <div class="project-item">
-            <h3>Project 1: YouTube Video 1</h3>
-            <p>This project explains using YouTube API for embedding videos dynamically.</p>
-            <img src="https://img.youtube.com/vi/L3KKiEi6-8w/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo('L3KKiEi6-8w', this)">
+            <div class="video-container" onclick="playVideo('L3KKiEi6-8w', this)">
+                <img src="https://img.youtube.com/vi/L3KKiEi6-8w/hqdefault.jpg" alt="Video Thumbnail" class="video-thumbnail">
+            </div>
+            <div class="project-info">
+                <h3>Project 1: Dynamic Video Embedding</h3>
+                <p>This project demonstrates embedding YouTube videos dynamically within a webpage. Clicking on the thumbnail launches the video in-place.</p>
+            </div>
         </div>
+
+        <!-- Add more project items below as needed -->
     </section>
 
     <!-- Footer -->
@@ -38,12 +68,18 @@
     </footer>
 
     <script>
-        function playVideo(videoId, thumbnailElement) {
+        // Function to replace thumbnail with embedded video player on click
+        function playVideo(videoId, container) {
             const videoPlayer = document.createElement("iframe");
             videoPlayer.width = "300";
             videoPlayer.height = "200";
             videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-            thumbnailElement.replaceWith(videoPlayer);
+            videoPlayer.frameBorder = "0";
+            videoPlayer.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+            videoPlayer.allowFullscreen = true;
+
+            // Replace the thumbnail container with the video player
+            container.replaceWith(videoPlayer);
         }
     </script>
 </body>
