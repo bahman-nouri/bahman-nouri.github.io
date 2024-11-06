@@ -4,29 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Assuming you have a CSS file -->
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Add the updated navbar styles here */
+        /* Basic Reset */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Header and Toolbar Styles */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
         .navbar {
             background-color: #333;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
         }
 
         .navbar a {
+            float: left;
             display: block;
             color: white;
             text-align: center;
-            padding: 16px 20px;
+            padding: 14px 20px;
             text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
         }
 
         .navbar a:hover {
             background-color: #ddd;
             color: black;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 20px;
+        }
+
+        /* Layout for the video and explanation */
+        .video-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .video-left {
+            width: 60%; /* Video on the left takes 60% */
+        }
+
+        .video-right {
+            width: 35%; /* Explanation on the right takes 35% */
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        /* Video Player Styles */
+        #video-player {
+            display: none;
+            position: relative;
+            width: 100%;
+            height: 315px; /* Fixed height for video */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
         }
     </style>
 </head>
@@ -35,7 +91,7 @@
 <!-- Navigation Bar -->
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
+    <a href="projects.html">Projects</a> <!-- Projects link -->
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
 </div>
@@ -47,12 +103,68 @@
 
 <!-- Projects Section -->
 <section id="projects">
-    <!-- Your project details will go here -->
+    <h2>Project 1: YouTube Video Embed</h2>
+
+    <!-- Project 1 -->
+    <div class="video-container">
+        <!-- Left: YouTube Video -->
+        <div class="video-left">
+            <div id="video-player-1" class="video-player">
+                <img id="thumbnail1" src="https://img.youtube.com/vi/L3KKiEi6-8w/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo('L3KKiEi6-8w', 'video-player-1')">
+            </div>
+        </div>
+
+        <!-- Right: Explanation -->
+        <div class="video-right">
+            <h3>Project 1 Explanation</h3>
+            <p>This project involves embedding YouTube videos on a webpage. The user can click on the video thumbnail to watch the video directly on the page. When clicked, the thumbnail will turn into the video player and start autoplaying the video.</p>
+        </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="video-container">
+        <!-- Left: YouTube Video -->
+        <div class="video-left">
+            <div id="video-player-2" class="video-player">
+                <img id="thumbnail2" src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo('YOUR_VIDEO_ID', 'video-player-2')">
+            </div>
+        </div>
+
+        <!-- Right: Explanation -->
+        <div class="video-right">
+            <h3>Project 2: Responsive Design</h3>
+            <p>This project focuses on creating a responsive webpage layout that adjusts for different screen sizes. The design adapts smoothly, ensuring usability across mobile, tablet, and desktop devices.</p>
+        </div>
+    </div>
 </section>
 
 <footer>
     <p>&copy; 2024 Bahman Nouri</p>
 </footer>
+
+<script>
+    // Function to display the video when the thumbnail is clicked
+    function playVideo(videoId, videoContainerId) {
+        // Get the video player container and thumbnail image
+        var videoPlayer = document.getElementById(videoContainerId);
+        var thumbnail = document.getElementById('thumbnail' + videoContainerId.split('-')[2]);
+
+        // Hide the thumbnail and display the video player
+        thumbnail.style.display = 'none';
+        
+        // Create and insert the iframe with the video
+        var iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        iframe.width = '100%';
+        iframe.height = '315';
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        
+        // Add the iframe to the container
+        videoPlayer.appendChild(iframe);
+    }
+</script>
 
 </body>
 </html>
