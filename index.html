@@ -91,6 +91,7 @@
             font-size: 22px;
             margin-top: 20px;
             color: #4CAF50;
+            text-align: left; /* Left-align section titles */
         }
 
         /* Footer */
@@ -109,6 +110,15 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        /* New Style for Inline Image Below About Me */
+        .about-me-image {
+            margin-top: 15px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -143,6 +153,9 @@
         <div class="section-content">
             <p class="section-title">About Me</p>
             <p>Hello! I am Bahman Nouri, a Lecturer in Robotics at The University of Manchester. My research focuses on teleoperated and (semi-)autonomous robots for medicine and scientific exploration. I have extensive experience in both academic and industrial projects that involve robotic systems, and I am passionate about advancing this field through innovative solutions and interdisciplinary collaboration.</p>
+
+            <!-- Inline Image Below About Me -->
+            <img src="images/IMG_2973.jpg" alt="Research Project Image" class="about-me-image">
 
             <p class="section-title">Opportunities</p>
             <p>Open opportunities for Ph.D. and Postdoctoral Research Associates in my group are listed on <a href="https://www.linkedin.com">LinkedIn</a> and the <a href="https://www.jobs.ac.uk">University Job Board</a>. Prospective MSc students interested in Robotics research should refer to the <a href="#">Robotics MSc</a> program or contact me directly for specific project opportunities.</p>
