@@ -38,19 +38,22 @@
             padding: 20px;
             max-width: 1000px;
             margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        /* Profile Section */
-        .profile-section {
+        /* Profile and About Section */
+        .profile-about-section {
             display: flex;
             align-items: flex-start;
             gap: 30px;
-            margin-top: 20px;
         }
 
+        /* Profile Image and Info */
         .profile-img-container {
-            max-width: 150px;
             text-align: center;
+            max-width: 150px;
         }
 
         .profile-img {
@@ -68,19 +71,14 @@
             font-size: 20px;
         }
 
-        /* Contact and Social Links */
         .contact-info {
-            margin-top: 10px;
             font-size: 14px;
             color: #333;
+            margin-top: 10px;
         }
 
-        .contact-info p {
-            margin: 5px 0;
-        }
-
-        /* Section Title and Content */
-        .section-content {
+        /* About Me Content */
+        .about-me-content {
             font-size: 18px;
             line-height: 1.6;
             max-width: 800px;
@@ -89,7 +87,7 @@
         .section-title {
             font-weight: bold;
             font-size: 22px;
-            margin-top: 20px;
+            margin-bottom: 10px;
             color: #4CAF50;
             text-align: left;
         }
@@ -98,8 +96,8 @@
         .carousel-container {
             position: relative;
             max-width: 100%;
-            margin-top: 15px;
             text-align: center;
+            margin-top: 20px;
         }
 
         .carousel-image {
@@ -174,41 +172,48 @@
 
 <!-- Main Content Section -->
 <section>
-    <div class="section-content">
-        <p class="section-title">About Me</p>
-        <p>Hello! I am Bahman Nouri, a Lecturer in Robotics at The University of Manchester...</p>
-
-        <!-- Carousel Section -->
-        <div class="carousel-container">
-            <img src="images/IMG_2973.jpg" class="carousel-image" id="carouselImage" alt="Research Project Image">
-
-            <!-- Navigation Buttons -->
-            <div class="carousel-nav">
-                <button onclick="changeImage(-1)">&#10094;</button>
-                <button onclick="changeImage(1)">&#10095;</button>
-            </div>
-
-            <!-- Dots for Image Indicator -->
-            <div class="carousel-dots">
-                <span class="carousel-dot" onclick="setImage(0)"></span>
-                <span class="carousel-dot" onclick="setImage(1)"></span>
+    <!-- Profile and About Me Section -->
+    <div class="profile-about-section">
+        <!-- Profile Image, Name, and Contact Info -->
+        <div class="profile-img-container">
+            <img src="images/your_photo.jpg" alt="Your Photo" class="profile-img">
+            <p class="profile-name">Murilo M. Marinho</p>
+            <div class="contact-info">
+                <p>Lecturer | Robotics</p>
+                <p>Whitehaven, UK</p>
+                <p>The University of Manchester</p>
+                <p>Email: murilo.marinho@example.com</p>
             </div>
         </div>
 
-        <p class="section-title">Opportunities</p>
-        <p>Open opportunities for Ph.D. and Postdoctoral Research Associates in my group...</p>
+        <!-- About Me Content -->
+        <div class="about-me-content">
+            <p class="section-title">About Me</p>
+            <p>Hello! I am Murilo Marques Marinho, a Lecturer in Robotics at The University of Manchester. My research focuses on teleoperated and autonomous robots applied to medicine and scientific exploration...</p>
+        </div>
+    </div>
 
-        <p class="section-title">Research</p>
-        <ul>
-            <li>Pediatric surgery: <a href="#">ICRA19</a>, <a href="#">RAL20</a>...</li>
-            <li>Eye surgery: <a href="#">T-MRB22</a> and <a href="#">ICRA23</a></li>
-        </ul>
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <img src="images/IMG_2973.jpg" class="carousel-image" id="carouselImage" alt="Research Project Image">
+        
+        <!-- Navigation Buttons -->
+        <div class="carousel-nav">
+            <button onclick="changeImage(-1)">&#10094;</button>
+            <button onclick="changeImage(1)">&#10095;</button>
+        </div>
+
+        <!-- Dots for Image Indicator -->
+        <div class="carousel-dots">
+            <span class="carousel-dot" onclick="setImage(0)"></span>
+            <span class="carousel-dot" onclick="setImage(1)"></span>
+        </div>
     </div>
 </section>
 
 <!-- Footer -->
 <footer>
-    <p>&copy; 2024 Bahman Nouri</p>
+    <p>&copy; 2024 Murilo Marques Marinho</p>
 </footer>
 
 <script>
