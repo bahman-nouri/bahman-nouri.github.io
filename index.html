@@ -37,6 +37,14 @@
         .contact-info { margin-top: 15px; font-size: 14px; }
         .contact-item { margin-bottom: 12px; } /* Add spacing between contact items */
         .right-column { flex: 1; }
+
+        /* Bold styling similar to About Me */
+        .name-heading {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
         
         /* Carousel styles */
         .carousel-container { position: relative; max-width: 100%; margin-top: 20px; text-align: center; }
@@ -119,7 +127,8 @@
     <!-- Home Content -->
     <div class="content">
         <div class="left-column">
-            <p><strong>Name:</strong> Bahman Nouri</p>
+            <!-- Display Bahman Nouri in bold as the main name heading -->
+            <p class="name-heading">Bahman Nouri</p>
             <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
             <div class="contact-info">
                 <p class="contact-item"><i class="fas fa-user-tie"></i> Postdoc, Robotics</p>
