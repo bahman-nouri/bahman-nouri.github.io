@@ -41,12 +41,14 @@
             color: black;
         }
 
-        /* Home Section Styles */
+        /* Main Content Section */
         section {
             padding: 20px;
+            max-width: 1000px;
+            margin: auto;
         }
 
-        /* Profile Section with Image on the Left */
+        /* Profile Section */
         .profile-section {
             display: flex;
             align-items: flex-start;
@@ -54,10 +56,9 @@
             margin-top: 20px;
         }
 
-        /* Profile Image, Name, and Email */
         .profile-img-container {
-            text-align: center;
             max-width: 150px;
+            text-align: center;
         }
 
         .profile-img {
@@ -72,20 +73,31 @@
         .profile-name {
             margin-top: 10px;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
         }
 
-        .profile-email {
+        /* Contact and Social Links */
+        .contact-info {
+            margin-top: 10px;
             font-size: 14px;
             color: #333;
-            margin-top: 5px;
         }
 
-        /* Profile Description */
-        .profile-description {
-            font-size: 20px; /* Bigger font for description */
-            max-width: 800px; /* Wider text area for longer lines */
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        /* About, Opportunities, and Research Sections */
+        .section-content {
+            font-size: 18px;
             line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 22px;
+            margin-top: 20px;
         }
 
         /* Footer */
@@ -95,6 +107,16 @@
             padding: 10px 0;
             text-align: center;
         }
+
+        /* Links */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -102,33 +124,52 @@
 <!-- Navigation Bar -->
 <div class="navbar">
     <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
     <a href="publications.html">Publications</a>
-    <a href="#contact">Contact</a>
+    <a href="cv.html">CV</a>
+    <a href="software.html">Software</a>
+    <a href="random.html">Random</a>
 </div>
 
 <header>
     <h1>Bahman Nouri's Portfolio</h1>
-    <p>Welcome to my personal website!</p>
 </header>
 
-<!-- Home Section with Profile Image and Description -->
+<!-- Main Content Section -->
 <section>
-    <h2>About Me</h2>
-
-    <!-- Profile Section with Image on the Left, Name below Image, and Description on the Right -->
+    <!-- Profile Section -->
     <div class="profile-section">
-        <!-- Profile Image, Name, and Email -->
         <div class="profile-img-container">
             <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
             <p class="profile-name">Bahman Nouri</p>
-            <p class="profile-email">bahman.nouri@example.com</p> <!-- Replace with your actual email -->
+            <div class="contact-info">
+                <p>Location: Whitehaven, UK</p>
+                <p>University: The University of Manchester</p>
+                <p>Email: bahman.nouri@example.com</p>
+                <p><a href="https://www.linkedin.com" target="_blank">LinkedIn</a> | <a href="https://www.researchgate.net" target="_blank">ResearchGate</a> | <a href="https://github.com" target="_blank">GitHub</a> | <a href="https://scholar.google.com" target="_blank">Google Scholar</a></p>
+            </div>
         </div>
 
-        <!-- Profile Description -->
-        <div class="profile-description">
-            <p>Hello! I am Bahman Nouri, a passionate web developer and project enthusiast with a strong background in creating interactive websites and applications. My experience spans frontend and backend development, which has equipped me with versatile skills for crafting efficient and aesthetically pleasing digital solutions. I am dedicated to continuous learning, and I thrive on solving complex problems, contributing to impactful projects, and collaborating with other professionals to bring creative ideas to life.</p>
+        <!-- About Section -->
+        <div class="section-content">
+            <p class="section-title">About Me</p>
+            <p>Hello! I am Bahman Nouri, a Lecturer in Robotics at The University of Manchester. My research focuses on teleoperated and (semi-)autonomous robots for medicine and scientific exploration. I have extensive experience in both academic and industrial projects that involve robotic systems, and I am passionate about advancing this field through innovative solutions and interdisciplinary collaboration.</p>
         </div>
+    </div>
+
+    <!-- Opportunities Section -->
+    <div class="section-content">
+        <p class="section-title">Opportunities</p>
+        <p>Open opportunities for Ph.D. and Postdoctoral Research Associates in my group are listed on <a href="https://www.linkedin.com">LinkedIn</a> and the <a href="https://www.jobs.ac.uk">University Job Board</a>. Prospective MSc students interested in Robotics research should refer to the <a href="#">Robotics MSc</a> program or contact me directly for specific project opportunities.</p>
+    </div>
+
+    <!-- Research Section -->
+    <div class="section-content">
+        <p class="section-title">Research</p>
+        <p>My work has focused on the development of teleoperated and/or (semi-)autonomous robots applied to medical and scientific exploration.</p>
+        <ul>
+            <li>Pediatric surgery: <a href="#">ICRA19</a>, <a href="#">RAL20</a>, <a href="#">T-MRB21</a>, and <a href="#">JMRCAS23</a></li>
+            <li>Eye surgery: <a href="#">T-MRB22</a> and <a href="#">ICRA23</a></li>
+        </ul>
     </div>
 </section>
 
