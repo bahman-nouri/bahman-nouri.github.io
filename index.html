@@ -10,8 +10,9 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            position: relative; /* Allows absolute positioning of footer */
-            min-height: 100vh; /* Ensure full height of page */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures full viewport height */
         }
 
         .navbar {
@@ -42,6 +43,7 @@
             margin: auto;
             padding: 20px;
             gap: 2cm; /* Adjusted to 2cm gap between columns */
+            flex: 1; /* Ensures content takes up available space */
         }
 
         .left-column {
@@ -135,12 +137,14 @@
             right: 10px;
         }
 
+        /* Footer Section */
         footer {
             background-color: #333;
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: relative;
+            width: 100%;
+            margin-top: auto;
         }
 
         footer::after {
@@ -154,14 +158,11 @@
         }
 
         .copyright {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 14px;
             color: black;
             padding-bottom: 10px;
         }
+
     </style>
 </head>
 <body>
@@ -186,7 +187,7 @@
             </div>
         </div>
 
-        <!-- Right Column for About Me -->
+        <!-- Right Column for About Me and Images -->
         <div class="right-column">
             <div class="about-me-content">
                 <p class="section-title">About Me</p>
