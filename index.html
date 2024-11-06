@@ -42,11 +42,27 @@
             gap: 20px;
         }
 
-        /* Profile and About Section */
-        .profile-about-section {
+        /* About Me Title */
+        .about-me-content {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+            text-align: left;
+        }
+
+        /* Profile and Carousel Section */
+        .profile-carousel-section {
             display: flex;
             align-items: flex-start;
             gap: 30px;
+            margin-top: 20px;
         }
 
         /* Profile Image and Info */
@@ -71,21 +87,6 @@
             text-align: center;
         }
 
-        /* About Me Content */
-        .about-me-content {
-            font-size: 18px;
-            line-height: 1.6;
-            max-width: 800px;
-        }
-
-        .section-title {
-            font-weight: bold;
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #4CAF50;
-            text-align: left;
-        }
-
         /* Carousel Styles */
         .carousel-container {
             position: relative;
@@ -97,7 +98,7 @@
         .carousel-image {
             width: 100%;
             height: auto;
-            max-height: 300px; /* Adjust size as needed */
+            max-height: 300px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -122,6 +123,25 @@
             background-color: #4CAF50;
         }
 
+        /* Navigation Arrows */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #4CAF50;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .carousel-nav.left {
+            left: 10px;
+        }
+
+        .carousel-nav.right {
+            right: 10px;
+        }
+
         /* Footer */
         footer {
             background-color: #333;
@@ -144,8 +164,14 @@
 
 <!-- Main Content Section -->
 <section>
-    <!-- Profile and About Me Section -->
-    <div class="profile-about-section">
+    <!-- About Me Content -->
+    <div class="about-me-content">
+        <p class="section-title">About Me</p>
+        <p>I am a Lecturer in Robotics with a focus on teleoperated and autonomous robotic systems for medicine and scientific exploration. With a background in mechatronics and automation engineering, I strive to innovate in robotics and support impactful research projects.</p>
+    </div>
+
+    <!-- Profile and Carousel Section -->
+    <div class="profile-carousel-section">
         <!-- Profile Image, Name, and Contact Info -->
         <div class="profile-img-container">
             <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
@@ -158,21 +184,22 @@
             </div>
         </div>
 
-        <!-- About Me Content -->
-        <div class="about-me-content">
-            <p class="section-title">About Me</p>
-            <p>I am a Lecturer in Robotics with a focus on teleoperated and autonomous robotic systems for medicine and scientific exploration. With a background in mechatronics and automation engineering, I strive to innovate in robotics and support impactful research projects.</p>
-        </div>
-    </div>
+        <!-- Carousel Section -->
+        <div class="carousel-container">
+            <!-- Left Arrow for Carousel Navigation -->
+            <span class="carousel-nav left" onclick="prevImage()">&#10094;</span>
 
-    <!-- Carousel Section Below About Me -->
-    <div class="carousel-container">
-        <img src="images/Figure10.JPG" class="carousel-image" id="carouselImage" alt="Research Project Image">
-        
-        <!-- Dots for Image Indicator -->
-        <div class="carousel-dots">
-            <span class="carousel-dot" onclick="setImage(0)"></span>
-            <span class="carousel-dot" onclick="setImage(1)"></span>
+            <!-- Image in Carousel -->
+            <img src="images/Figure10.JPG" class="carousel-image" id="carouselImage" alt="Research Project Image">
+
+            <!-- Right Arrow for Carousel Navigation -->
+            <span class="carousel-nav right" onclick="nextImage()">&#10095;</span>
+
+            <!-- Dots for Image Indicator -->
+            <div class="carousel-dots">
+                <span class="carousel-dot" onclick="setImage(0)"></span>
+                <span class="carousel-dot" onclick="setImage(1)"></span>
+            </div>
         </div>
     </div>
 </section>
@@ -201,6 +228,16 @@
             dots[i].classList.remove("active");
         }
         dots[currentIndex].classList.add("active");
+    }
+
+    function nextImage() {
+        currentIndex++;
+        showImage(currentIndex);
+    }
+
+    function prevImage() {
+        currentIndex--;
+        showImage(currentIndex);
     }
 
     function setImage(index) {
