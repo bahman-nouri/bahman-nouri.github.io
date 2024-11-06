@@ -10,6 +10,8 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            position: relative; /* Allows absolute positioning of footer */
+            min-height: 100vh; /* Ensure full height of page */
         }
 
         .navbar {
@@ -150,6 +152,16 @@
             height: 2px; /* Black line at the bottom */
             background-color: black;
         }
+
+        .copyright {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: black;
+            padding-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -203,7 +215,9 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Bahman Nouri</p>
+        <div class="copyright">
+            <p>&copy; 2024 Bahman Nouri</p>
+        </div>
     </footer>
 
     <script>
