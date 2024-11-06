@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Basic Reset */
+        body, h1, h2, p {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
         }
 
+        /* Header and Toolbar Styles */
         header {
             background-color: #4CAF50;
             color: white;
@@ -19,6 +21,7 @@
             text-align: center;
         }
 
+        /* Navigation Bar */
         .navbar {
             background-color: #333;
             overflow: hidden;
@@ -38,38 +41,26 @@
             color: black;
         }
 
+        /* Section Styles */
         section {
             padding: 20px;
-            margin: 10px;
         }
 
-        .project {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        .project h3 {
-            margin: 0;
-        }
-
-        .video-link {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        .video-link:hover {
-            text-decoration: underline;
-        }
-
+        /* Layout for the video and explanation */
         .video-container {
-            position: fixed;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            width: 300px;
-            display: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .video-left {
+            width: 60%; /* Explanation on the left takes 60% */
+        }
+
+        .video-right {
+            width: 35%; /* YouTube video thumbnail on the right takes 35% */
         }
 
         .video-thumbnail {
@@ -77,6 +68,20 @@
             cursor: pointer;
             border: 2px solid #ddd;
             border-radius: 8px;
+        }
+
+        /* Video Player Styles */
+        #video-player {
+            display: none;
+            position: fixed;  /* Fixed position to keep the video on the right side */
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 280px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -89,41 +94,50 @@
 </head>
 <body>
 
-<header>
-    <h1>My Projects</h1>
-</header>
-
 <!-- Navigation Bar -->
 <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
+    <a href="index.html">Home</a> <!-- Link to Home Page -->
+    <a href="projects.html">Projects</a> <!-- Link to Projects Page -->
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
 </div>
 
-<section>
-    <div class="project">
-        <h3>Project Title 1</h3>
-        <p>Description of Project 1. This project involves...</p>
-        <a class="video-link" onclick="showVideo('L3KKiEi6-8w')">Watch Video</a>
+<header>
+    <h1>My Projects</h1>
+    <p>Here are some of the projects I have worked on.</p>
+</header>
+
+<!-- Projects Section -->
+<section id="projects">
+    <h2>Project 1: YouTube Video Embed</h2>
+
+    <!-- Project 1 -->
+    <div class="video-container">
+        <div class="video-left">
+            <h3>Project 1 Explanation</h3>
+            <p>This project involves embedding YouTube videos on a webpage. The user can click on the video thumbnail to watch the video directly on the page.</p>
+        </div>
+        <div class="video-right">
+            <img id="thumbnail1" src="https://img.youtube.com/vi/L3KKiEi6-8w/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo('L3KKiEi6-8w')">
+        </div>
     </div>
 
-    <div class="project">
-        <h3>Project Title 2</h3>
-        <p>Description of Project 2. This project involves...</p>
-        <a class="video-link" onclick="showVideo('YOUR_VIDEO_ID_2')">Watch Video</a>
+    <!-- Project 2 -->
+    <div class="video-container">
+        <div class="video-left">
+            <h3>Project 2: Responsive Design</h3>
+            <p>This project focuses on creating a responsive webpage layout that adjusts for different screen sizes.</p>
+        </div>
+        <div class="video-right">
+            <img id="thumbnail2" src="https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo('YOUR_VIDEO_ID')">
+        </div>
     </div>
 
-    <div class="project">
-        <h3>Project Title 3</h3>
-        <p>Description of Project 3. This project involves...</p>
-        <a class="video-link" onclick="showVideo('YOUR_VIDEO_ID_3')">Watch Video</a>
-    </div>
 </section>
 
-<!-- YouTube Video Embed -->
-<div class="video-container" id="video-container">
-    <iframe id="video-iframe" width="300" height="169" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!-- Video Player (Hidden initially) -->
+<div id="video-player">
+    <iframe id="video-iframe" width="500" height="280" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <footer>
@@ -131,12 +145,12 @@
 </footer>
 
 <script>
-    // Function to display the video when the corresponding link is clicked
-    function showVideo(videoId) {
+    // Function to display the video when the thumbnail is clicked
+    function playVideo(videoId) {
         const iframe = document.getElementById('video-iframe');
-        const videoContainer = document.getElementById('video-container');
+        const videoPlayer = document.getElementById('video-player');
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        videoContainer.style.display = 'block'; // Show video container
+        videoPlayer.style.display = 'block'; // Show the video player
     }
 </script>
 
