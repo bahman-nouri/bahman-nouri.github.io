@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bahman Nouri Portfolio</title>
     <style>
-        /* Basic styles for the homepage */
+        /* Basic styles */
         body, h1, h2, p {
             margin: 0;
             padding: 0;
@@ -32,8 +32,48 @@
         .profile-img { width: 100%; border-radius: 50%; border: 3px solid #4CAF50; }
         .contact-info { margin-top: 15px; font-size: 14px; }
         .right-column { flex: 1; }
-        .carousel-container { position: relative; max-width: 100%; margin-top: 20px; }
+        
+        /* Carousel styles */
+        .carousel-container { position: relative; max-width: 100%; margin-top: 20px; text-align: center; }
         .carousel-image { width: 100%; max-height: 300px; border-radius: 8px; }
+        
+        /* Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .indicator {
+            width: 12px;
+            height: 12px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .indicator.active {
+            background-color: #333;
+        }
+        
+        /* Navigation buttons */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .carousel-nav.prev { left: 10px; }
+        .carousel-nav.next { right: 10px; }
+        
+        /* Footer */
         footer { background-color: #333; color: white; padding: 10px 0; text-align: center; }
     </style>
 </head>
@@ -64,6 +104,16 @@
             <!-- Carousel -->
             <div class="carousel-container">
                 <img src="images/Figure10.JPG" class="carousel-image" alt="Research Project Image" id="carouselImage">
+                
+                <!-- Navigation buttons -->
+                <div class="carousel-nav prev" onclick="changeSlide(-1)">&#10094;</div>
+                <div class="carousel-nav next" onclick="changeSlide(1)">&#10095;</div>
+
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <div class="indicator active" onclick="goToSlide(0)"></div>
+                    <div class="indicator" onclick="goToSlide(1)"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -72,5 +122,36 @@
     <footer>
         <p>&copy; 2024 Bahman Nouri</p>
     </footer>
+
+    <script>
+        const images = ["images/Figure10.JPG", "images/Figure11.JPG"];
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const carouselImage = document.getElementById("carouselImage");
+            const indicators = document.querySelectorAll(".indicator");
+
+            // Wrap around slide index if out of bounds
+            currentSlide = (index + images.length) % images.length;
+
+            // Update the image source
+            carouselImage.src = images[currentSlide];
+
+            // Update active indicator
+            indicators.forEach(ind => ind.classList.remove("active"));
+            indicators[currentSlide].classList.add("active");
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Initialize the first slide
+        showSlide(currentSlide);
+    </script>
 </body>
 </html>
