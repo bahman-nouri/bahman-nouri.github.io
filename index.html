@@ -11,182 +11,59 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
-
         .navbar {
             background-color: #333;
-            overflow: hidden;
             display: flex;
             justify-content: center;
         }
-
         .navbar a {
-            display: block;
             color: white;
-            text-align: center;
             padding: 16px 20px;
             text-decoration: none;
             font-size: 18px;
             font-weight: bold;
         }
-
         .navbar a:hover {
             background-color: #ddd;
             color: black;
         }
-
-        .content {
-            display: flex;
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
-            gap: 2cm; /* Set a gap of 2cm between the two columns */
-        }
-
-        .left-column {
-            width: 200px;
-        }
-
-        .profile-img {
-            width: 100%;
-            border-radius: 50%;
-            border: 3px solid #4CAF50;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            object-fit: cover;
-        }
-
-        .contact-info {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-            text-align: left;
-        }
-
-        .right-column {
-            flex: 1;
-        }
-
-        .section-title {
-            font-weight: bold;
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #4CAF50;
-        }
-
-        .about-me-content {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .carousel-image {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .carousel-dots {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .carousel-dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            margin: 0 5px;
-            background-color: #bbb;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .carousel-dot.active {
-            background-color: #4CAF50;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            color: #4CAF50;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .carousel-nav.left {
-            left: 10px;
-        }
-
-        .carousel-nav.right {
-            right: 10px;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
+        .content { display: flex; max-width: 1000px; margin: auto; padding: 20px; gap: 2cm; }
+        .left-column { width: 200px; }
+        .profile-img { width: 100%; border-radius: 50%; border: 3px solid #4CAF50; }
+        .contact-info { margin-top: 15px; font-size: 14px; }
+        .right-column { flex: 1; }
+        .carousel-container { position: relative; max-width: 100%; margin-top: 20px; }
+        .carousel-image { width: 100%; max-height: 300px; border-radius: 8px; }
+        footer { background-color: #333; color: white; padding: 10px 0; text-align: center; }
     </style>
 </head>
 <body>
-
     <!-- Navigation Bar -->
     <div class="navbar">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a> <!-- New Publications link -->
+        <a href="publications.html">Publications</a>
     </div>
 
-    <!-- Home Section -->
+    <!-- Home Content -->
     <div class="content">
-        <!-- Left Column for Profile Image and Contact Info -->
         <div class="left-column">
             <p><strong>Name:</strong> Bahman Nouri</p>
             <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
             <div class="contact-info">
                 <p><strong>Email:</strong> bahno@dtu.dk</p>
-                <p><strong>Affiliation:</strong> Technical University of Denmark (DTU)</p>
+                <p><strong>Affiliation:</strong> DTU</p>
                 <p><strong>Location:</strong> Riso, Denmark</p>
-                <p><a href="https://www.linkedin.com/in/bahman-nouri-rahmatabadi-78640173/">LinkedIn Profile</a></p>
+                <p><a href="https://www.linkedin.com/in/bahman-nouri-rahmatabadi-78640173/">LinkedIn</a></p>
             </div>
         </div>
-
-        <!-- Right Column for About Me -->
         <div class="right-column">
-            <div class="about-me-content">
-                <p class="section-title">About Me</p>
-                <p>I am a PhD candidate at the Technical University of Denmark (DTU), working on the RoboPrint project. With a background in mechatronics and automation engineering, I am passionate about innovating in robotics and contributing to impactful research projects.</p>
-            </div>
+            <h2>About Me</h2>
+            <p>I am a PhD candidate at the Technical University of Denmark (DTU), working on the RoboPrint project.</p>
 
-            <!-- Carousel Section with Images Below About Me -->
+            <!-- Carousel -->
             <div class="carousel-container">
-                <!-- Left Arrow for Carousel Navigation -->
-                <span class="carousel-nav left" onclick="prevImage()">&#10094;</span>
-
-                <!-- Image in Carousel -->
-                <img src="images/Figure10.JPG" class="carousel-image" id="carouselImage" alt="Research Project Image">
-
-                <!-- Right Arrow for Carousel Navigation -->
-                <span class="carousel-nav right" onclick="nextImage()">&#10095;</span>
-
-                <!-- Dots for Image Indicator -->
-                <div class="carousel-dots">
-                    <span class="carousel-dot" onclick="setImage(0)"></span>
-                    <span class="carousel-dot" onclick="setImage(1)"></span>
-                </div>
+                <img src="images/Figure10.JPG" class="carousel-image" alt="Research Project Image" id="carouselImage">
             </div>
         </div>
     </div>
@@ -195,46 +72,5 @@
     <footer>
         <p>&copy; 2024 Bahman Nouri</p>
     </footer>
-
-    <script>
-        // JavaScript for Carousel
-        const images = ["images/Figure10.JPG", "images/IMG_2973.jpg"]; // Replace with actual paths to your images
-        let currentIndex = 0;
-
-        function showImage(index) {
-            const carouselImage = document.getElementById("carouselImage");
-            const dots = document.getElementsByClassName("carousel-dot");
-
-            if (index >= images.length) { currentIndex = 0; }
-            if (index < 0) { currentIndex = images.length - 1; }
-
-            carouselImage.src = images[currentIndex];
-            
-            // Update dots to show active image
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
-            dots[currentIndex].classList.add("active");
-        }
-
-        function nextImage() {
-            currentIndex++;
-            showImage(currentIndex);
-        }
-
-        function prevImage() {
-            currentIndex--;
-            showImage(currentIndex);
-        }
-
-        function setImage(index) {
-            currentIndex = index;
-            showImage(currentIndex);
-        }
-
-        // Initialize carousel with first image
-        showImage(currentIndex);
-    </script>
-
 </body>
 </html>
