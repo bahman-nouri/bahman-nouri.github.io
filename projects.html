@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - Bahman Nouri Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Projects - Bahman Nouri Portfolio</title>
     <style>
         /* Basic Reset */
         body, h1, h2, p {
@@ -13,32 +12,22 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Page Layout to Keep Footer at the Bottom */
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Main content section */
-        .content {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
-
         /* Navigation Bar */
         .navbar {
             background-color: #333;
+            overflow: hidden;
             display: flex;
             justify-content: center;
         }
 
         .navbar a {
+            display: block;
             color: white;
-            padding: 14px 20px;
+            text-align: center;
+            padding: 16px 20px;
             text-decoration: none;
             font-size: 18px;
+            font-weight: bold;
         }
 
         .navbar a:hover {
@@ -46,15 +35,62 @@
             color: black;
         }
 
+        /* Projects Section */
+        section {
+            padding: 50px;
+            text-align: center;
+        }
+
+        /* Styling for Video Container */
+        .video-container {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+
+        .video-thumbnail {
+            width: 300px;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .project-item {
+            margin: 10px;
+            text-align: left;
+            width: 300px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .project-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
         /* Footer Styles */
         footer {
-            background-color: #007bff; /* Set footer to blue */
+            background-color: #333;
             color: white;
-            text-align: center;
             padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            text-align: center;
+        }
+
+        /* Video Player Styles */
+        .video-player {
+            display: none;
+            margin-top: 10px;
+            width: 300px;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        /* Project List */
+        .projects-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
         }
     </style>
 </head>
@@ -65,24 +101,65 @@
     <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
+    <a href="#contact">Contact</a>
 </div>
 
-<!-- Main Content -->
-<div class="content">
-    <h1>Publications</h1>
-    <p>This section contains my publications.</p>
-    <ul>
-        <li>Example Manuscript 1 - Author, Journal, Year</li>
-        <li>Example Manuscript 2 - Author, Journal, Year</li>
-        <!-- Add more publications here as needed -->
-    </ul>
-</div>
+<!-- Projects Section -->
+<section id="projects">
+    <h2>Projects</h2>
+
+    <!-- List of Projects -->
+    <div class="projects-list">
+        <!-- Project 1 -->
+        <div class="project-item">
+            <h3>Project 1: YouTube Video 1</h3>
+            <p>This project explains how to use YouTube API for embedding videos dynamically.</p>
+            <div class="video-container">
+                <img src="https://img.youtube.com/vi/L3KKiEi6-8w/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo('L3KKiEi6-8w', this)">
+                <div id="video-1" class="video-player">
+                    <iframe width="300" height="200" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-item">
+            <h3>Project 2: YouTube Video 2</h3>
+            <p>This project explains how to integrate YouTube videos into a website for better user experience.</p>
+            <div class="video-container">
+                <img src="https://img.youtube.com/vi/some_other_video_id/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo('some_other_video_id', this)">
+                <div id="video-2" class="video-player">
+                    <iframe width="300" height="200" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more projects as needed -->
+    </div>
+</section>
 
 <!-- Footer -->
 <footer>
     <p>&copy; 2024 Bahman Nouri</p>
 </footer>
+
+<script>
+    // Function to display the video when the thumbnail is clicked
+    function playVideo(videoId, thumbnailElement) {
+        // Get the video player element by id using the thumbnailElement reference
+        const videoPlayer = thumbnailElement.nextElementSibling;  // Get the next div which is the video player
+        
+        // Get the iframe inside the video player and set its source
+        const iframe = videoPlayer.querySelector('iframe');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+        // Show the video player
+        videoPlayer.style.display = 'block';
+
+        // Hide the thumbnail
+        thumbnailElement.style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
