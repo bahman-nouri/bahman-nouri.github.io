@@ -74,6 +74,29 @@
         
         /* Footer */
         footer { background-color: #333; color: white; padding: 10px 0; text-align: center; }
+
+        /* Social links */
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            margin-top: 15px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            color: #4CAF50;
+        }
+        .social-links img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -91,9 +114,26 @@
             <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
             <div class="contact-info">
                 <p><strong>Email:</strong> bahno@dtu.dk</p>
-                <p><strong>Affiliation:</strong> DTU</p>
-                <p><strong>Location:</strong> Riso, Denmark</p>
-                <p><a href="https://www.linkedin.com/in/bahman-nouri-rahmatabadi-78640173/">LinkedIn</a></p>
+                
+                <!-- Social Links -->
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/bahman-nouri-rahmatabadi-78640173/">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/LinkedIn_logo_initials.png" alt="LinkedIn Icon">
+                        LinkedIn
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=example">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Google_Scholar_logo.svg" alt="Google Scholar Icon">
+                        Google Scholar
+                    </a>
+                    <a href="https://github.com/your-github-username">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Icon">
+                        GitHub
+                    </a>
+                    <a href="https://orcid.org/0000-0002-1825-0097">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/ORCID_Logo.svg" alt="ORCID Icon">
+                        ORCID
+                    </a>
+                </div>
             </div>
         </div>
         <div class="right-column">
