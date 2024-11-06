@@ -91,7 +91,65 @@
             font-size: 22px;
             margin-top: 20px;
             color: #4CAF50;
-            text-align: left; /* Left-align section titles */
+            text-align: left;
+        }
+
+        /* Carousel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .carousel-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .carousel-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Dots for Image Indicator */
+        .carousel-dots {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .carousel-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background-color: #4CAF50;
         }
 
         /* Footer */
@@ -100,25 +158,6 @@
             color: white;
             padding: 10px 0;
             text-align: center;
-        }
-
-        /* Links */
-        a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* New Style for Inline Image Below About Me */
-        .about-me-image {
-            margin-top: 15px;
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -135,38 +174,35 @@
 
 <!-- Main Content Section -->
 <section>
-    <!-- Profile Section -->
-    <div class="profile-section">
-        <!-- Profile Image and Contact Info -->
-        <div class="profile-img-container">
-            <img src="images/bahman.jpg" alt="Profile Photo" class="profile-img">
-            <p class="profile-name">Bahman Nouri</p>
-            <div class="contact-info">
-                <p>Location: Whitehaven, UK</p>
-                <p>University: The University of Manchester</p>
-                <p>Email: bahman.nouri@example.com</p>
-                <p><a href="https://www.linkedin.com" target="_blank">LinkedIn</a> | <a href="https://www.researchgate.net" target="_blank">ResearchGate</a> | <a href="https://github.com" target="_blank">GitHub</a> | <a href="https://scholar.google.com" target="_blank">Google Scholar</a></p>
+    <div class="section-content">
+        <p class="section-title">About Me</p>
+        <p>Hello! I am Bahman Nouri, a Lecturer in Robotics at The University of Manchester...</p>
+
+        <!-- Carousel Section -->
+        <div class="carousel-container">
+            <img src="images/IMG_2973.jpg" class="carousel-image" id="carouselImage" alt="Research Project Image">
+
+            <!-- Navigation Buttons -->
+            <div class="carousel-nav">
+                <button onclick="changeImage(-1)">&#10094;</button>
+                <button onclick="changeImage(1)">&#10095;</button>
+            </div>
+
+            <!-- Dots for Image Indicator -->
+            <div class="carousel-dots">
+                <span class="carousel-dot" onclick="setImage(0)"></span>
+                <span class="carousel-dot" onclick="setImage(1)"></span>
             </div>
         </div>
 
-        <!-- About Section -->
-        <div class="section-content">
-            <p class="section-title">About Me</p>
-            <p>Hello! I am Bahman Nouri, a Lecturer in Robotics at The University of Manchester. My research focuses on teleoperated and (semi-)autonomous robots for medicine and scientific exploration. I have extensive experience in both academic and industrial projects that involve robotic systems, and I am passionate about advancing this field through innovative solutions and interdisciplinary collaboration.</p>
+        <p class="section-title">Opportunities</p>
+        <p>Open opportunities for Ph.D. and Postdoctoral Research Associates in my group...</p>
 
-            <!-- Inline Image Below About Me -->
-            <img src="images/IMG_2973.jpg" alt="Research Project Image" class="about-me-image">
-
-            <p class="section-title">Opportunities</p>
-            <p>Open opportunities for Ph.D. and Postdoctoral Research Associates in my group are listed on <a href="https://www.linkedin.com">LinkedIn</a> and the <a href="https://www.jobs.ac.uk">University Job Board</a>. Prospective MSc students interested in Robotics research should refer to the <a href="#">Robotics MSc</a> program or contact me directly for specific project opportunities.</p>
-
-            <p class="section-title">Research</p>
-            <p>My work has focused on the development of teleoperated and/or (semi-)autonomous robots applied to medical and scientific exploration.</p>
-            <ul>
-                <li>Pediatric surgery: <a href="#">ICRA19</a>, <a href="#">RAL20</a>, <a href="#">T-MRB21</a>, and <a href="#">JMRCAS23</a></li>
-                <li>Eye surgery: <a href="#">T-MRB22</a> and <a href="#">ICRA23</a></li>
-            </ul>
-        </div>
+        <p class="section-title">Research</p>
+        <ul>
+            <li>Pediatric surgery: <a href="#">ICRA19</a>, <a href="#">RAL20</a>...</li>
+            <li>Eye surgery: <a href="#">T-MRB22</a> and <a href="#">ICRA23</a></li>
+        </ul>
     </div>
 </section>
 
@@ -174,6 +210,41 @@
 <footer>
     <p>&copy; 2024 Bahman Nouri</p>
 </footer>
+
+<script>
+    // JavaScript for Carousel
+    const images = ["images/IMG_2973.jpg", "images/IMG_2974.jpg"]; // Replace with your actual image paths
+    let currentIndex = 0;
+
+    function showImage(index) {
+        const carouselImage = document.getElementById("carouselImage");
+        const dots = document.getElementsByClassName("carousel-dot");
+
+        if (index >= images.length) { currentIndex = 0; }
+        if (index < 0) { currentIndex = images.length - 1; }
+
+        carouselImage.src = images[currentIndex];
+        
+        // Update dots to show active image
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.remove("active");
+        }
+        dots[currentIndex].classList.add("active");
+    }
+
+    function changeImage(step) {
+        currentIndex += step;
+        showImage(currentIndex);
+    }
+
+    function setImage(index) {
+        currentIndex = index;
+        showImage(currentIndex);
+    }
+
+    // Initialize carousel
+    showImage(currentIndex);
+</script>
 
 </body>
 </html>
