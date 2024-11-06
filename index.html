@@ -39,11 +39,10 @@
         
         /* Indicators */
         .carousel-indicators {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            position: relative;
+            margin-top: 10px;
             display: flex;
+            justify-content: center;
             gap: 10px;
         }
         .indicator {
@@ -109,7 +108,7 @@
                 <div class="carousel-nav prev" onclick="changeSlide(-1)">&#10094;</div>
                 <div class="carousel-nav next" onclick="changeSlide(1)">&#10095;</div>
 
-                <!-- Indicators -->
+                <!-- Indicators below the carousel image -->
                 <div class="carousel-indicators">
                     <div class="indicator active" onclick="goToSlide(0)"></div>
                     <div class="indicator" onclick="goToSlide(1)"></div>
@@ -124,7 +123,8 @@
     </footer>
 
     <script>
-        const images = ["images/Figure10.JPG", "images/Figure11.JPG"];
+        // Updated array with specific image file names
+        const images = ["images/Figure10.JPG", "images/IMG_2973.jpg"];
         let currentSlide = 0;
 
         function showSlide(index) {
