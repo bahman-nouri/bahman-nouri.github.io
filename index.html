@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Robotics Research</title>
-    <link rel="stylesheet" href="css/style.css">
     <style>
         /* Basic Reset */
         body, h1, h2, p {
@@ -102,27 +101,19 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Carousel Navigation Buttons */
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
+        /* Small Images Below About Me */
+        .small-images {
             display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .carousel-nav button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .carousel-nav button:hover {
-            background-color: rgba(0, 0, 0, 0.8);
+        .small-image {
+            width: 200px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Dots for Image Indicator */
@@ -188,16 +179,16 @@
         </div>
     </div>
 
+    <!-- Small Images Section Below About Me -->
+    <div class="small-images">
+        <img src="images/Figure10.JPG" alt="Figure 1" class="small-image">
+        <img src="images/IMG_2973.jpg" alt="Figure 2" class="small-image">
+    </div>
+
     <!-- Carousel Section -->
     <div class="carousel-container">
         <img src="images/Figure10.JPG" class="carousel-image" id="carouselImage" alt="Research Project Image">
         
-        <!-- Navigation Buttons -->
-        <div class="carousel-nav">
-            <button onclick="changeImage(-1)">&#10094;</button>
-            <button onclick="changeImage(1)">&#10095;</button>
-        </div>
-
         <!-- Dots for Image Indicator -->
         <div class="carousel-dots">
             <span class="carousel-dot" onclick="setImage(0)"></span>
