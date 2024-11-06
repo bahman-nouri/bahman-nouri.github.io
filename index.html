@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
+    <title>YouTube Video Example</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Basic Reset */
+        body, h1, h2, p {
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
         }
 
+        /* Header and Toolbar Styles */
         header {
             background-color: #4CAF50;
             color: white;
@@ -19,6 +21,7 @@
             text-align: center;
         }
 
+        /* Navigation Bar */
         .navbar {
             background-color: #333;
             overflow: hidden;
@@ -38,29 +41,26 @@
             color: black;
         }
 
+        /* Section Styles */
         section {
             padding: 20px;
-            margin: 10px;
         }
 
-        /* Layout for the project container */
-        .project {
+        /* Layout for the video and explanation */
+        .video-container {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
         }
 
-        .project-left {
-            width: 60%; /* Explanation takes 60% of the width */
+        .video-left {
+            width: 60%; /* Explanation on the left takes 60% */
         }
 
-        .project-right {
-            width: 35%; /* Video thumbnail takes 35% */
+        .video-right {
+            width: 35%; /* YouTube video thumbnail on the right takes 35% */
         }
 
         .video-thumbnail {
@@ -70,22 +70,18 @@
             border-radius: 8px;
         }
 
-        .video-link {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        .video-link:hover {
-            text-decoration: underline;
-        }
-
-        .video-container {
-            position: fixed;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            width: 300px;
+        /* Video Player Styles */
+        #video-player {
             display: none;
+            position: fixed;  /* Fixed position to keep the video on the right side */
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 280px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -98,72 +94,60 @@
 </head>
 <body>
 
-<header>
-    <h1>My Projects</h1>
-</header>
-
 <!-- Navigation Bar -->
 <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
+    <a href="#projects">Projects</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
 </div>
 
-<section>
-    <!-- Project 1 -->
-    <div class="project">
-        <div class="project-left">
-            <h3>Project Title 1</h3>
-            <p>Description of Project 1. This project involves...</p>
-            <a class="video-link" onclick="showVideo('L3KKiEi6-8w')">Watch Video</a>
+<header>
+    <h1>My Portfolio</h1>
+    <p>Welcome to my website!</p>
+</header>
+
+<section id="projects">
+    <h2>Watch My Video</h2>
+
+    <!-- Project with explanation on the left and video thumbnail on the right -->
+    <div class="video-container">
+        <div class="video-left">
+            <h3>Project Explanation</h3>
+            <p>This project involves creating an interactive webpage that plays YouTube videos upon clicking the thumbnail. The explanation about the project can be found here, along with the embedded YouTube video on the right side.</p>
         </div>
-        <div class="project-right">
-            <img src="https://img.youtube.com/vi/L3KKiEi6-8w/0.jpg" alt="Project 1 Video Thumbnail" class="video-thumbnail" onclick="showVideo('L3KKiEi6-8w')">
+        
+        <div class="video-right">
+            <!-- YouTube Video Thumbnail -->
+            <img id="thumbnail" src="https://img.youtube.com/vi/L3KKiEi6-8w/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo()">
         </div>
     </div>
 
-    <!-- Project 2 -->
-    <div class="project">
-        <div class="project-left">
-            <h3>Project Title 2</h3>
-            <p>Description of Project 2. This project involves...</p>
-            <a class="video-link" onclick="showVideo('YOUR_VIDEO_ID_2')">Watch Video</a>
-        </div>
-        <div class="project-right">
-            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_2/0.jpg" alt="Project 2 Video Thumbnail" class="video-thumbnail" onclick="showVideo('YOUR_VIDEO_ID_2')">
-        </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="project">
-        <div class="project-left">
-            <h3>Project Title 3</h3>
-            <p>Description of Project 3. This project involves...</p>
-            <a class="video-link" onclick="showVideo('YOUR_VIDEO_ID_3')">Watch Video</a>
-        </div>
-        <div class="project-right">
-            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/0.jpg" alt="Project 3 Video Thumbnail" class="video-thumbnail" onclick="showVideo('YOUR_VIDEO_ID_3')">
-        </div>
+    <!-- YouTube Embed Code (hidden initially) -->
+    <div id="video-player">
+        <iframe id="video-iframe" width="500" height="280" src="https://www.youtube.com/embed/L3KKiEi6-8w?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </section>
 
-<!-- YouTube Video Embed -->
-<div class="video-container" id="video-container">
-    <iframe id="video-iframe" width="300" height="169" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+<section id="about">
+    <h2>About Me</h2>
+    <p>This section can contain information about yourself.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Here you can add contact information or a contact form.</p>
+</section>
 
 <footer>
     <p>&copy; 2024 Bahman Nouri</p>
 </footer>
 
 <script>
-    // Function to display the video when the corresponding link is clicked
-    function showVideo(videoId) {
-        const iframe = document.getElementById('video-iframe');
-        const videoContainer = document.getElementById('video-container');
-        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-        videoContainer.style.display = 'block'; // Show video container
+    // Function to display the video when the thumbnail is clicked
+    function playVideo() {
+        // Hide the thumbnail and show the video iframe
+        document.getElementById('thumbnail').style.display = 'none';
+        document.getElementById('video-player').style.display = 'block';
     }
 </script>
 
