@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Video Example</title>
+    <title>My Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Basic Reset */
@@ -46,44 +46,6 @@
             padding: 20px;
         }
 
-        /* Layout for the video and explanation */
-        .video-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .video-left {
-            width: 60%; /* Explanation on the left takes 60% */
-        }
-
-        .video-right {
-            width: 35%; /* YouTube video thumbnail on the right takes 35% */
-        }
-
-        .video-thumbnail {
-            width: 100%;
-            cursor: pointer;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-        }
-
-        /* Video Player Styles */
-        #video-player {
-            display: none;
-            position: fixed;  /* Fixed position to keep the video on the right side */
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            width: 500px;
-            height: 280px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
         footer {
             background-color: #333;
             color: white;
@@ -96,7 +58,8 @@
 
 <!-- Navigation Bar -->
 <div class="navbar">
-    <a href="#projects">Projects</a>
+    <a href="index.html">Home</a> <!-- Link to Home Page -->
+    <a href="projects.html">Projects</a> <!-- Link to Projects Page -->
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
 </div>
@@ -106,33 +69,19 @@
     <p>Welcome to my website!</p>
 </header>
 
-<section id="projects">
-    <h2>Watch My Video</h2>
-
-    <!-- Project with explanation on the left and video thumbnail on the right -->
-    <div class="video-container">
-        <div class="video-left">
-            <h3>Project Explanation</h3>
-            <p>This project involves creating an interactive webpage that plays YouTube videos upon clicking the thumbnail. The explanation about the project can be found here, along with the embedded YouTube video on the right side.</p>
-        </div>
-        
-        <div class="video-right">
-            <!-- YouTube Video Thumbnail -->
-            <img id="thumbnail" src="https://img.youtube.com/vi/L3KKiEi6-8w/maxresdefault.jpg" alt="Video Thumbnail" class="video-thumbnail" onclick="playVideo()">
-        </div>
-    </div>
-
-    <!-- YouTube Embed Code (hidden initially) -->
-    <div id="video-player">
-        <iframe id="video-iframe" width="500" height="280" src="https://www.youtube.com/embed/L3KKiEi6-8w?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+<!-- Home Section -->
+<section id="home">
+    <h2>Welcome to My Portfolio</h2>
+    <p>This is a brief introduction about me and my work.</p>
 </section>
 
+<!-- About Section -->
 <section id="about">
     <h2>About Me</h2>
     <p>This section can contain information about yourself.</p>
 </section>
 
+<!-- Contact Section -->
 <section id="contact">
     <h2>Contact</h2>
     <p>Here you can add contact information or a contact form.</p>
@@ -141,15 +90,6 @@
 <footer>
     <p>&copy; 2024 Bahman Nouri</p>
 </footer>
-
-<script>
-    // Function to display the video when the thumbnail is clicked
-    function playVideo() {
-        // Hide the thumbnail and show the video iframe
-        document.getElementById('thumbnail').style.display = 'none';
-        document.getElementById('video-player').style.display = 'block';
-    }
-</script>
 
 </body>
 </html>
