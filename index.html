@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>My Projects</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         body {
@@ -19,7 +19,6 @@
             text-align: center;
         }
 
-        /* Navigation Bar */
         .navbar {
             background-color: #333;
             overflow: hidden;
@@ -39,10 +38,54 @@
             color: black;
         }
 
-        /* Section Styles */
         section {
             padding: 20px;
-            text-align: center;
+            margin: 10px;
+        }
+
+        /* Layout for the project container */
+        .project {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .project-left {
+            width: 60%; /* Explanation takes 60% of the width */
+        }
+
+        .project-right {
+            width: 35%; /* Video thumbnail takes 35% */
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .video-link {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .video-link:hover {
+            text-decoration: underline;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 300px;
+            display: none;
         }
 
         footer {
@@ -55,6 +98,10 @@
 </head>
 <body>
 
+<header>
+    <h1>My Projects</h1>
+</header>
+
 <!-- Navigation Bar -->
 <div class="navbar">
     <a href="index.html">Home</a>
@@ -63,24 +110,62 @@
     <a href="#contact">Contact</a>
 </div>
 
-<header>
-    <h1>Welcome to My Portfolio</h1>
-    <p>Click on "Projects" to explore my work</p>
-</header>
+<section>
+    <!-- Project 1 -->
+    <div class="project">
+        <div class="project-left">
+            <h3>Project Title 1</h3>
+            <p>Description of Project 1. This project involves...</p>
+            <a class="video-link" onclick="showVideo('L3KKiEi6-8w')">Watch Video</a>
+        </div>
+        <div class="project-right">
+            <img src="https://img.youtube.com/vi/L3KKiEi6-8w/0.jpg" alt="Project 1 Video Thumbnail" class="video-thumbnail" onclick="showVideo('L3KKiEi6-8w')">
+        </div>
+    </div>
 
-<section id="about">
-    <h2>About Me</h2>
-    <p>This section can contain information about yourself.</p>
+    <!-- Project 2 -->
+    <div class="project">
+        <div class="project-left">
+            <h3>Project Title 2</h3>
+            <p>Description of Project 2. This project involves...</p>
+            <a class="video-link" onclick="showVideo('YOUR_VIDEO_ID_2')">Watch Video</a>
+        </div>
+        <div class="project-right">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_2/0.jpg" alt="Project 2 Video Thumbnail" class="video-thumbnail" onclick="showVideo('YOUR_VIDEO_ID_2')">
+        </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project">
+        <div class="project-left">
+            <h3>Project Title 3</h3>
+            <p>Description of Project 3. This project involves...</p>
+            <a class="video-link" onclick="showVideo('YOUR_VIDEO_ID_3')">Watch Video</a>
+        </div>
+        <div class="project-right">
+            <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID_3/0.jpg" alt="Project 3 Video Thumbnail" class="video-thumbnail" onclick="showVideo('YOUR_VIDEO_ID_3')">
+        </div>
+    </div>
 </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>Here you can add contact information or a contact form.</p>
-</section>
+<!-- YouTube Video Embed -->
+<div class="video-container" id="video-container">
+    <iframe id="video-iframe" width="300" height="169" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 <footer>
     <p>&copy; 2024 Bahman Nouri</p>
 </footer>
+
+<script>
+    // Function to display the video when the corresponding link is clicked
+    function showVideo(videoId) {
+        const iframe = document.getElementById('video-iframe');
+        const videoContainer = document.getElementById('video-container');
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        videoContainer.style.display = 'block'; // Show video container
+    }
+</script>
 
 </body>
 </html>
