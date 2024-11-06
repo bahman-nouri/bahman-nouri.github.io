@@ -33,19 +33,18 @@
             color: black;
         }
 
-        /* Content Sections */
-        .section {
-            display: none;
+        /* Main Content Section */
+        .content {
+            display: flex;
+            max-width: 1000px;
+            margin: auto;
             padding: 20px;
-        }
-
-        .active-section {
-            display: block;
+            gap: 20px;
         }
 
         /* Left Column for Profile */
         .left-column {
-            max-width: 200px;
+            width: 200px;
         }
 
         .profile-img {
@@ -163,9 +162,9 @@
     <div class="content">
         <!-- Left Column for Profile Image and Contact Info -->
         <div class="left-column">
+            <p><strong>Name:</strong> Bahman Nouri</p>
             <img src="images/bahman.jpg" alt="Bahman Nouri's Photo" class="profile-img">
             <div class="contact-info">
-                <p><strong>Name:</strong> Bahman Nouri</p>
                 <p><strong>Email:</strong> bahman.nouri@example.com</p>
                 <p><strong>Affiliation:</strong> The University of Manchester</p>
                 <p><strong>Location:</strong> Whitehaven, UK</p>
